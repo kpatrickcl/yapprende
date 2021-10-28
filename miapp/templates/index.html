@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+<!--Esto es un comentario en HTML, aparece en el inspeccionador de elementos-->
+{% comment 'Este es el título o enunciado de un comentario'%}
+Aquí dentro pueden ir variadas líneas de código que sean comentario y no aparecerán
+en el inspeccionador de elementos.
+{% endcomment %}
+
+
+{% block content %}
+    <h1 class="title">{{title}}</h1>
+    <p>Aquí irá la información del menú de inicio:</p>
+    <p>{{mi_variable}}</p>
+
+    {% if nombre and nombre == "Carlos SC"%}
+        <p>{{nombre}}</p>
+    {% else %}
+        <strong>El nombre no existe o no coincide</strong>
+
+    {% endif %}        
+
+    <h3>Listado de lenguajes de programación que manejo:</h3>
+    <ul>
+        {% for lenguaje in lenguajes %}
+            <li>{{forloop.counter}}. {{lenguaje}}</li>
+        {% empty %}
+            <p>NO HAY LENGUAJES QUE MOSTRAR</p>    
+        {% endfor %}
+    </ul>
+    {% include 'fecha_actual.html' with saludo="Buenas, saludos desde el index" %}
+{% endblock %}
+

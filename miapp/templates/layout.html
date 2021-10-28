@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block title %}
+        
+        {% endblock %}
+        | Carlos Patricio SC
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+</head>
+
+<body>
+
+    <!--Cabecera de la página-->
+   <header>
+       <div id = "logotipo">            
+            <!--Logo Yapprende-->
+            <img src="{% static 'images/logo.png' %}" />
+            <h1>Sitio web de Yapprende</h1>
+        </div>       
+   </header>
+
+   <nav>
+    <ul>
+        <li>
+            <a href="{% url 'inicio' %}"> Inicio </a>
+        </li>
+        <li>
+            <a href="{% url 'hola_mundo' %}"> Iniciar sesión </a>
+        </li>
+        <li>
+            <a href="{% url 'pagina' %}"> Descargar app </a>
+        </li>
+        <li>
+            <a href="{% url 'contacto' 'Carloncho' 'SC' %}"> Contacto </a>
+        </li>
+    </ul>
+   </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+        
+    </div>
+   
+    <div id="content">
+        <div class="box">            
+            {% block content %}
+                <strong> Contenido del bloque original !!! </strong>
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer>
+        Master en Python y páginas web &copy; Carlos SC - {% now "d/m/Y" %}
+    </footer>
+</body>
+
+
+</html>

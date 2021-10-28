@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load filters %}
+
+{% block title %} Página de pruebas {% endblock %}
+
+{% block content %}
+    <h1 class="title">Una página cualquiera de mi web</h1>
+    <p>{{ "Creado por Carlos SC, osea, yoññ"|cut:"ñ" }}</p>
+    
+
+    {{texto|default:"No había texto"}}
+
+    <p>{{"<h1>He aquí el manso textaZOO</h1> <strong>WENAQL</strong>"|striptags|wordcount}}
+    <p>{{"He aquí mi nombre formateado laptm"|saludo|safe}}
+
+    <p>Link para descargar aplicación:</p> 
+    <p>
+    <a href="https://drive.google.com/uc?export=download&id=1hJMs0yOIHrLjQG47I8oTAQTRwRnQ-qjd" target="_blank" class="boton">Yapprende</a>
+    </p>
+    
+{% endblock %}
